@@ -11,8 +11,8 @@
           <div>
             <label for="email">Введите ваше имя</label>
             <input type="text" id="name" v-model.trim="name"
-
             >
+            
 
           </div>
           <div>
@@ -91,7 +91,6 @@
 
 <script>
 import ContactModal from "../../ui/ContactModal";
-//import {email, required, minLength} from 'vuelidate/lib/validators'
 
 export default {
   name: "Contacts",
@@ -107,55 +106,7 @@ export default {
       modal: false
     }
   },
-  /*validations: {
-    form: {
-      name: {
-        required,
-        minLength: minLength(2),
-      },
-      email: {
-        required,
-        email,
-      },
-      phone: {
-        required,
-        minLength: minLength(10),
-      },
-      commit: {
-        required,
-        minLength: minLength(20),
-      },
-    }
-  },
-  computed:{
-    nameErrors() {
-      const errors = [];
-      if (!this.$v.form.name.required) errors.push('Обязательно для заполнения.')
-      if (!this.$v.form.name.minLength) errors.push('Не меньше двух знаков.')
-      return errors;
-    },
-    emailErrors() {
-      const errors = [];
-      if (!this.$v.form.email.required) errors.push('Обязательно для заполнения.')
-      if (!this.$v.form.email.email) errors.push('Невалидный email.')
-      return errors;
-    },
-    phoneErrors() {
-      const errors = [];
-      if (!this.$v.form.phone.required) errors.push('Обязательно для заполнения.')
-      if (!this.$v.form.phone.phone) errors.push('Невалидный телефон.')
-      return errors;
-    },
-    commitErrors() {
-      const errors = [];
-      if (!this.$v.form.commit.required) errors.push('Обязательно для заполнения.')
-      if (!this.$v.form.commit.commit) errors.push('Невалидный комментарий.')
-      return errors;
-    },
-  },*/
-  /*  setup(){
-      return {...useContactForm()}
-    },*/
+
   methods: {
     submitForm() {
 

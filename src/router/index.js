@@ -45,7 +45,7 @@ const routes = [
     alias: '/',
     name: 'Contacts',
     meta: {layout: 'main'},
-    component: () => import('../views/Contacts/Contacts')
+    component: () => import('../views/Contacts/ContactsTest')
   },
   {
     path: '/history',
