@@ -55,20 +55,20 @@
 
 
           </div>
-
+<!--          @click="modal=true"-->
           <button class="btn primary" type="submit"
-                    @click="modal=true"
+                  :disabled="$v.$error" @click="$v.$touch()"
           >
             Отправить
           </button>
         </form>
-        <div v-if="modal">
+<!--        <div v-if="modal">
 
           <contact-modal
               @closeModal="modal=false"
           >
           </contact-modal>
-        </div>
+        </div>-->
 
       </div>
       <div class="contacts_phone">
@@ -94,8 +94,6 @@
               <a href="https://www.linkedin.com/"><i class="bi bi-linkedin"></i></a>
               <a href="https://www.whatsapp.com/?lang=uk"><i class="bi bi-whatsapp"></i></a>
             </div>
-
-
           </div>
         </div>
 
@@ -109,12 +107,12 @@
 
 import {minLength, required, email} from "vuelidate/lib/validators";
 import {IMaskDirective} from 'vue-imask'
-import ContactModal from "../../ui/ContactModal";
+//import ContactModal from "../../ui/ContactModal";
 
 export default {
   name: "Contacts",
   components: {
-    ContactModal
+  /*  ContactModal*/
   },
   data() {
     return {
@@ -175,9 +173,10 @@ export default {
       try {
         //Передаем наш обьект contact в store
         this.$store.dispatch('createContact', contact)
-        setTimeout(() => {
-          this.$router.push('/history')
-        }, 2000)
+        this.$router.push('/history')
+       /* setTimeout(() => {
+
+        }, 2000)*/
 
 
       } catch (e) {
