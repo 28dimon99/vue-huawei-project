@@ -9,14 +9,14 @@ const routes = [
     path: '/login',
     alias: '/',
     name: 'Login',
-    meta: {layout: 'empty'},
+    meta: {layout: 'auth'},
     component: () => import('../views/Login')
   },
   {
     path: '/register',
     alias: '/',
     name: 'Register',
-    meta: {layout: 'empty'},
+    meta: {layout: 'auth'},
     component: () => import('../views/Register')
   },
   {
@@ -25,6 +25,48 @@ const routes = [
     name: 'Products',
     meta: {layout: 'main'},
     component: () => import('../views/Products/Products')
+  },
+  {
+    path: '/company',
+    alias: '/',
+    name: 'Company',
+    meta: {layout: 'main'},
+    component: () => import('../views/Company')
+  },
+  {
+    path: '/delivery',
+    alias: '/',
+    name: 'Delivery',
+    meta: {layout: 'main'},
+    component: () => import('../views/Delivery/Delivery')
+  },
+  {
+    path: '/contacts',
+    alias: '/',
+    name: 'Contacts',
+    meta: {layout: 'main'},
+    component: () => import('../views/Contacts/Contacts')
+  },
+  {
+    path: '/history',
+    alias: '/',
+    name: 'History',
+    meta: {layout: 'main'},
+    component: () => import('../views/History')
+  },
+  {
+    path: '/basked',
+    alias: '/',
+    name: 'Basked',
+    meta: {layout: 'main'},
+    component: () => import('../views/Basked/Basked')
+  },
+  {
+    path: '/order',
+    alias: '/',
+    name: 'Order',
+    meta: {layout: 'main'},
+    component: () => import('../ui/OrderProducts')
   }
 
 ]
@@ -34,5 +76,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+
 
 export default router

@@ -4,38 +4,47 @@
     <form action="" class="card text-center" @submit.prevent="onSubmit">
       <h1>Войти в систему</h1>
 
-      <label for="email">Email</label>
-      <input type="text" id="email" placeholder="email"
-             v-model="email"
-             @input="$v.email.$touch"
-             :class="{error: $v.email.$error, valid: $v.email.$dirty && !$v.email.$invalid}">
-      <small v-if="($v.email.$dirty && !$v.email.required)">Поле email не должно быть пустым</small>
-      <small v-else-if="($v.email.$dirty && !$v.email.email)">Введите корректный email</small>
+      <div class="items__login">
+        <label for="email">Email</label>
+        <input type="text" id="email"
+               v-model="email"
+               @input="$v.email.$touch"
+               :class="{error: $v.email.$error, valid: $v.email.$dirty && !$v.email.$invalid}">
+        <small v-if="($v.email.$dirty && !$v.email.required)">Поле email не должно быть пустым</small>
+        <small v-else-if="($v.email.$dirty && !$v.email.email)">Введите корректный email</small>
+      </div>
 
-      <label for="password">Пароль</label>
-      <input type="password" id="password" placeholder="password"
-             v-model="password"
-             @input="$v.password.$touch"
-             :class="{error: $v.password.$error, valid: $v.password.$dirty && !$v.password.$invalid}">
-      <small v-if="($v.password.$dirty && !$v.password.required)">Введите пароль</small>
-      <small v-else-if="($v.password.$dirty && !$v.password.minLength)">
-        Пароль должен быть {{$v.password.$params.minLength.min}} символов. Сейчас он {{password.length}}
-      </small>
+     <div class="items__login">
+       <label for="password">Пароль</label>
+       <input type="password" id="password"
+              v-model="password"
+              @input="$v.password.$touch"
+              :class="{error: $v.password.$error, valid: $v.password.$dirty && !$v.password.$invalid}">
+       <small v-if="($v.password.$dirty && !$v.password.required)">Введите пароль</small>
+       <small v-else-if="($v.password.$dirty && !$v.password.minLength)">
+         Пароль должен быть {{$v.password.$params.minLength.min}} символов. Сейчас он {{password.length}}
+       </small>
+     </div>
 
-      <label for="repeat">Повторите пароль</label>
-      <input type="password" id="repeat" placeholder="repeat password"
-             v-model="repeatedPassword"
-             @input="$v.repeatedPassword.$touch"
-             :class="{error: $v.repeatedPassword.$error, valid: $v.repeatedPassword.$dirty && !$v.repeatedPassword.$invalid}"
-      >
-      <small v-if="($v.password.$dirty && !$v.password.required)">Введите пароль</small>
-      <small v-else-if="($v.password.$dirty && !$v.password.minLength)">
-        Пароль должен быть {{$v.password.$params.minLength.min}} символов. Сейчас он {{password.length}}
-      </small>
-      <button :disabled="$v.$error" @click="$v.$touch()">
-        Войти
-      </button>
-      <p>Нет аккаунта</p><h5><router-link to="/register">ЗАРЕГЕСТРИРОВАТСЯ</router-link></h5>
+     <div class="items__login">
+       <label for="repeat">Повторите пароль</label>
+       <input type="password" id="repeat"
+              v-model="repeatedPassword"
+              @input="$v.repeatedPassword.$touch"
+              :class="{error: $v.repeatedPassword.$error, valid: $v.repeatedPassword.$dirty && !$v.repeatedPassword.$invalid}"
+       >
+       <small v-if="($v.password.$dirty && !$v.password.required)">Введите пароль</small>
+       <small v-else-if="($v.password.$dirty && !$v.password.minLength)">
+         Пароль должен быть {{$v.password.$params.minLength.min}} символов. Сейчас он {{password.length}}
+       </small>
+     </div>
+
+  <button class="btn primary" :disabled="$v.$error" @click="$v.$touch()">
+    Войти
+  </button>
+
+
+      <p>Нет аккаунта?</p><h5><router-link to="/register">ЗАРЕГЕСТРИРОВАТСЯ</router-link></h5>
     </form>
 
     <br/>
@@ -102,15 +111,28 @@ export default {
 <style scoped>
 .login {
   display: grid;
-  max-width: 50%;
-  margin: 100px auto;
+  max-width: 700px;
+  margin: 50px auto;
 }
-
+.card{
+  border: 5px solid #42b983;
+}
+.items__login{
+  display: grid;
+}
 input {
   border: 1px solid silver;
-  border-radius: 4px;
+  border-radius: 10px;
   background: white;
-  padding: 5px 10px;
+  min-height: 35px;
+}
+label{
+  padding: 10px 0 10px 0;
+}
+button{
+  margin: 10px 0 10px 0;
+  width: 200px;
+  height: 30px;
 }
 
 .error {

@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import auth from "./modules/auth";
+import contacts from "./modules/contacts";
+import products from "./modules/products";
 
 Vue.use(Vuex)
 
@@ -20,6 +22,6 @@ export default new Vuex.Store({
     error: s => s.error
   },
   modules: {
-    auth
+    auth, contacts, products
   }
 })
