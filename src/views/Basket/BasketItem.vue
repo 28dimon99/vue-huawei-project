@@ -1,30 +1,24 @@
 <template>
 
-     <tbody class="basked_item">
+     <tbody class="basket_item">
      <tr>
        <td>{{index + 1}}</td>
-       <td>{{basked_item.name}}</td>
+       <td>{{basket_item.name}}</td>
 
-       <td>{{basked_item.model}}</td>
+       <td>{{basket_item.model}}</td>
 
-       <td>{{basked_item.price}} грн.</td>
+       <td>{{basket_item.price}} грн.</td>
        <td>
          <span @click="decrementItem">-</span>
-         {{basked_item.quantity}}
+         {{basket_item.quantity}}
          <span @click="incrementItem">+</span>
        </td>
 
        <td><button class="btn danger" @click="removeProducts">Удалить</button></td>
 
      </tr>
-     <div>{{basked_item.baskedTotalConst}}</div>
+     <div>{{basket_item.basketTotalConst}}</div>
      </tbody>
-
-
-
-
-
-
 
 </template>
 
@@ -32,10 +26,10 @@
 
 
 export default {
-  name: "BaskedItem",
+  name: "BasketItem",
   emits:['removeProducts'],
   props: {
-    basked_item: {
+    basket_item: {
       type: Object,
       default: () => ({}),
     },
@@ -65,7 +59,7 @@ export default {
 </script>
 
 <style scoped>
-.basked_item td{
+.basket_item td{
   cursor: pointer;
   border-bottom: 1px solid black;
   border-left: 1px solid black;

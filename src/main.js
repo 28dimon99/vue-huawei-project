@@ -9,8 +9,16 @@ import 'firebase/auth'
 import 'firebase/database'
 import  './theme.css'
 
-Vue.config.productionTip = false
+
+
+
+
+
 Vue.use(Vuelidate)
+
+
+
+
 
 
 firebase.initializeApp({
@@ -23,6 +31,7 @@ firebase.initializeApp({
     measurementId: "G-7E7HR42E9M"
 })
 let app
+
 firebase.auth().onAuthStateChanged(()=>{
     if(!app){
         app = new Vue({

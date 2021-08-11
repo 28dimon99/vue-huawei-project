@@ -14,7 +14,7 @@
         <h4 class="card-text">{{ product_item.name }}</h4>
         <p class="card-text">{{ product_item.model }}</p>
         <p>{{ product_item.price }} грн.</p>
-        <a class="btn primary" @click="addToBasked">Добавить в корзину</a>
+        <a class="btn primary" @click="addToBasket">Добавить в корзину</a>
       </div>
     </div>
 
@@ -45,12 +45,12 @@ import CardModal from "../../ui/CardModal";
 
 export default {
   name: "ProductsItem",
-  emits:['addToBasked', 'productAlert'],
+  emits:['addToBasket', 'productAlert'],
   props: {
     product_item: {
-      type: Array,
+      type: Object,
       default() {
-        return []
+        return {}
       }
     },
 
@@ -63,8 +63,8 @@ export default {
   },
 
   methods: {
-    addToBasked() {
-      this.$emit('addToBasked',this.product_item)
+    addToBasket() {
+      this.$emit('addToBasket',this.product_item)
     },
 
   },

@@ -112,7 +112,7 @@ export default {
         name: this.name
       }
       try{
-        this.$router.push('/')
+        this.$router.push('/login')
         await this.$store.dispatch('register', formData)
       }catch (e){
         console.log(e)

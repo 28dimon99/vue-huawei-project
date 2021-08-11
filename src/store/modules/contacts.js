@@ -1,6 +1,5 @@
 export default {
     state: {
-        //Храним данные в строковом формате в JSON
         contacts: JSON.parse(localStorage.getItem('contacts') || '[]')
     },
     mutations: {

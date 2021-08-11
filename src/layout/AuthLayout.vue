@@ -1,6 +1,6 @@
 <template>
   <div class="app_auth_layout">
-
+   <app-message/>
     <router-view/>
 
   </div>
@@ -10,20 +10,14 @@
 <script>
 
 
-import messages from "../utils/messages";
+
+
+import AppMessage from "../ui/AppMessage";
 
 export default {
   name: "AuthLayout",
-  computed: {
-    error() {
-      return this.$store.getters.error
-    }
-  },
-  watch:{
-    error(fbError){
-      //console.log(fbError)
-      this.$error(messages[fbError.code] || 'Что то пошло не так')
-    }
+  components:{
+    AppMessage
   }
 }
 </script>

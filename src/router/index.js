@@ -14,60 +14,48 @@ const routes = [
   },
   {
     path: '/register',
-    alias: '/',
     name: 'Register',
     meta: {layout: 'auth'},
     component: () => import('../views/Register')
   },
   {
     path: '/product',
-    alias: '/',
     name: 'Products',
     meta: {layout: 'main'},
     component: () => import('../views/Products/Products')
   },
   {
     path: '/company',
-    alias: '/',
     name: 'Company',
     meta: {layout: 'main'},
     component: () => import('../views/Company')
   },
   {
     path: '/delivery',
-    alias: '/',
     name: 'Delivery',
     meta: {layout: 'main'},
     component: () => import('../views/Delivery/Delivery')
   },
   {
     path: '/contacts',
-    alias: '/',
     name: 'Contacts',
     meta: {layout: 'main'},
-    component: () => import('../views/Contacts/ContactsTest')
+    component: () => import('../views/Contacts/Contacts')
   },
   {
     path: '/history',
-    alias: '/',
     name: 'History',
     meta: {layout: 'main'},
     component: () => import('../views/History')
   },
   {
-    path: '/basked',
-    alias: '/',
+    path: '/basket',
     name: 'Basked',
     meta: {layout: 'main'},
-    component: () => import('../views/Basked/Basked')
+    component: () => import('../views/Basket/Basket')
   },
-  {
-    path: '/order',
-    alias: '/',
-    name: 'Order',
-    meta: {layout: 'main'},
-    component: () => import('../ui/OrderProducts')
-  }
+
+
 
 ]
 

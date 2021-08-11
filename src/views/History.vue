@@ -7,8 +7,6 @@
         </div>
       </div>
 
-
-      <!-- Ecли переменная contacts != 0 то показываем таблицу-->
       <div class="table-responsive">
         <table v-if="contacts.length" class="table history__table">
           <thead>
@@ -36,7 +34,7 @@
           </tr>
           </tbody>
         </table>
-        <!--А иначе показываем-->
+
         <p v-else>Нет контактов...</p>
       </div>
 

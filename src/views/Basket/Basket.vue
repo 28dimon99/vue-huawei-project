@@ -1,7 +1,7 @@
 <template>
-  <div class="container-sm basked">
-    <div class="card basked__table">
-      <p v-if="!BASKED.length">Корзина пустая...</p>
+  <div class="container-sm basket">
+    <div class="card basket__table">
+      <p v-if="!BASKET.length">Корзина пустая...</p>
       <div v-else>
         <h1>Корзина</h1>
         <hr>
@@ -17,28 +17,26 @@
               <th>#</th>
             </tr>
             </thead>
-            <basked-item
-                v-for="(item, idx) in BASKED"
+            <basket-item
+                v-for="(item, idx) in BASKET"
                 :key="item.id"
-                :basked_item="item"
+                :basket_item="item"
                 :index="idx"
                 @removeProducts="removeProducts(idx)"
                 @incrementItem="incrementItem(idx)"
                 @decrementItem="decrementItem(idx)"
-                :baskedTotalConst="baskedTotalConst"
+                :basketTotalConst="basketTotalConst"
             >
-            </basked-item>
+            </basket-item>
             <th>Всего:</th>
             <th></th>
             <th></th>
-            <th>{{ baskedTotalConst }} грн.</th>
+            <th>{{ basketTotalConst }} грн.</th>
             <th></th>
 
 
           </table>
-          <div class="basked__order">
-            <button class="btn primary" @click="$router.push('/order')">Оформить заказ</button>
-          </div>
+
 
         </div>
       </div>
@@ -47,23 +45,23 @@
 </template>
 <script>
 
-import BaskedItem from "./BaskedItem";
+
 import {mapActions, mapGetters} from "vuex";
+import BasketItem from "./BasketItem";
 
 export default {
-  name: "Cart",
+  name: "Basket",
   computed: {
-    ...mapGetters(['BASKED']),
-    baskedTotalConst() {
+    ...mapGetters(['BASKET']),
+    basketTotalConst() {
       let result = [];
-      if (this.BASKED.length) {
-        for (let item of this.BASKED) {
+      if (this.BASKET.length) {
+        for (let item of this.BASKET) {
           result.push(item.price * item.quantity)
         }
         result = result.reduce((sum, el) => {
           return sum + el
         })
-        console.log('Всего', result)
         return result
       } else {
         return 0
@@ -73,29 +71,29 @@ export default {
   },
 
   methods: {
-    ...mapActions(['DELETE_FROM_BASKED', 'INCREMENT_BASKED_ITEM', 'DECREMENT_BASKED_ITEM']),
+    ...mapActions(['DELETE_FROM_BASKET', 'INCREMENT_BASKET_ITEM', 'DECREMENT_BASKET_ITEM']),
     removeProducts(idx) {
-      this.DELETE_FROM_BASKED(idx)
+      this.DELETE_FROM_BASKET(idx)
     },
     decrementItem(idx) {
-      this.DECREMENT_BASKED_ITEM(idx)
+      this.DECREMENT_BASKET_ITEM(idx)
     },
     incrementItem(idx) {
-      this.INCREMENT_BASKED_ITEM(idx)
+      this.INCREMENT_BASKET_ITEM(idx)
     }
   },
-  components: {BaskedItem}
+  components: {BasketItem}
 }
 </script>
 
 <style scoped>
-.basked {
+.basket {
   text-align: center;
   max-width: 1200px;
   margin: 100px auto;
 }
 
-.basked__table {
+.basket__table {
   border: 5px solid #3eaf7c;
 }
 
@@ -113,8 +111,6 @@ export default {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.basked__order {
-  margin: 10px auto;
-}
+
 
 </style>

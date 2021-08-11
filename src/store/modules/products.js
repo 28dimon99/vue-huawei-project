@@ -3,39 +3,39 @@ import * as axios from "axios";
 export default {
     state: {
         products: [],
-        basked: [],
+        basket: [],
         searchValue: '',
     },
     mutations: {
         SET_PRODUCTS_DATA(state, products) {
             state.products = products
         },
-        SET_PRODUCT_TO_BASKED(state, product) {
-            if (state.basked.length){
+        SET_PRODUCT_TO_BASKET(state, product) {
+            if (state.basket.length){
                 let isProductExist = false
-                state.basked.map((item)=>{
+                state.basket.map((item)=>{
                     if(item.id === product.id){
                         isProductExist = true
                         item.quantity++
                     }
                 })
                 if(!isProductExist){
-                    state.basked.push(product)
+                    state.basket.push(product)
                 }
             } else{
-                state.basked.push(product)
+                state.basket.push(product)
             }
 
         },
-        REMOVE_FROM_BASKED(state, idx){
-            state.basked.splice(idx, 1)
+        REMOVE_FROM_BASKET(state, idx){
+            state.basket.splice(idx, 1)
         },
         INCREMENT: (state, idx) => {
-            state.basked[idx].quantity++
+            state.basket[idx].quantity++
         },
         DECREMENT: (state, idx) => {
-            if (state.basked[idx].quantity > 1) {
-                state.basked[idx].quantity--
+            if (state.basket[idx].quantity > 1) {
+                state.basket[idx].quantity--
             }
         },
         SET_SEARCH_VALUE: (state, value) => {
@@ -54,18 +54,18 @@ export default {
             }
         },
 
-        ADD_TO_BASKED({commit}, product) {
-            commit('SET_PRODUCT_TO_BASKED', product)
+        ADD_TO_BASKET({commit}, product) {
+            commit('SET_PRODUCT_TO_BASKET', product)
         },
-        DELETE_FROM_BASKED({commit},idx){
-            commit('REMOVE_FROM_BASKED', idx)
+        DELETE_FROM_BASKET({commit},idx){
+            commit('REMOVE_FROM_BASKET', idx)
         },
 
-        INCREMENT_BASKED_ITEM({commit}, idx){
+        INCREMENT_BASKET_ITEM({commit}, idx){
             commit('INCREMENT', idx)
         },
 
-        DECREMENT_BASKED_ITEM({commit}, idx){
+        DECREMENT_BASKET_ITEM({commit}, idx){
             commit('DECREMENT', idx)
         },
 
@@ -81,8 +81,8 @@ export default {
             return state.products
         },
 
-        BASKED(state) {
-            return state.basked
+        BASKET(state) {
+            return state.basket
         },
 
         SEARCH_VALUE(state){

@@ -26,18 +26,7 @@
        </small>
      </div>
 
-     <div class="items__login">
-       <label for="repeat">Повторите пароль</label>
-       <input type="password" id="repeat"
-              v-model="repeatedPassword"
-              @input="$v.repeatedPassword.$touch"
-              :class="{error: $v.repeatedPassword.$error, valid: $v.repeatedPassword.$dirty && !$v.repeatedPassword.$invalid}"
-       >
-       <small v-if="($v.password.$dirty && !$v.password.required)">Введите пароль</small>
-       <small v-else-if="($v.password.$dirty && !$v.password.minLength)">
-         Пароль должен быть {{$v.password.$params.minLength.min}} символов. Сейчас он {{password.length}}
-       </small>
-     </div>
+
 
   <button class="btn primary" :disabled="$v.$error" @click="$v.$touch()">
     Войти
@@ -53,17 +42,28 @@
 </template>
 
 <script>
-import {email, required, minLength, sameAs} from 'vuelidate/lib/validators'
+import {email, required, minLength} from 'vuelidate/lib/validators'
+import {useRoute} from 'vue-router'
+import {useStore} from 'vuex'
+import {error} from "../utils/error";
 
 export default {
   name: "LoginTest",
+  setup(){
+    const route = useRoute()
+    const store = useStore()
+
+    if(route.query.message){
+      store.dispatch('setMessage', {
+        value: error(route.query.message),
+        type: 'warning'
+      })
+    }
+  },
   data() {
     return {
-
         email: '',
         password: '',
-        repeatedPassword: ''
-
     }
 
   },
@@ -77,10 +77,7 @@ export default {
         required,
         minLength: minLength(8)
       },
-      repeatedPassword: {
-        required,
-        sameAs: sameAs('password')
-      }
+
 
   },
   methods: {
@@ -103,6 +100,9 @@ export default {
       }
 
     }
+  },
+  mounted() {
+
   }
 }
 

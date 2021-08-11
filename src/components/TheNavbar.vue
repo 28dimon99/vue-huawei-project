@@ -6,7 +6,7 @@
       </router-link>
     </div>
     <div class="navbar_burger">
-        <img src="../assets/burger.png" alt="" class="nav_menu" v-if="!show" @click="show = !show" :key="menu"/>
+        <img src="../assets/burger.png" alt="" class="nav_menu" v-if="!show" @click="show = !show"/>
         <img src="../assets/burger.png" class="close" v-else @click="show = !show" :key="close" alt=""/>
 
       <transition name="fade" class="navbar_link">
@@ -41,13 +41,13 @@
       <li>
         <router-link to="/product">Товары</router-link>
       </li>
+      <li>
+        <router-link to="/basket">Корзина</router-link>
+      </li>
+      <li>
+        <router-link to="/login" @click.prevent="logout" >Выход</router-link>
+      </li>
 
-      <li>
-        <router-link to="/basked">Корзина</router-link>
-      </li>
-      <li>
-        <router-link to="/" @click.prevent="logout">Выход</router-link>
-      </li>
 
     </ul>
   </div>
@@ -56,8 +56,16 @@
 <script>
 
 
+
+
 export default {
   name: "TheNavbar",
+  props:{
+    error:{
+      type: String,
+      default: ''
+    }
+  },
   data() {
     return {
       links: [
@@ -66,7 +74,7 @@ export default {
         {title: 'Контакты', url: '/contacts'},
         {title: 'История контактов', url: '/history'},
         {title: 'Товары', url: '/product'},
-        {title: 'Корзина', url: '/basked'},
+        {title: 'Корзина', url: '/basket'},
         {title: 'Выход', url: '/login'}
       ],
       show: false,
@@ -74,15 +82,15 @@ export default {
     }
   },
   methods:{
-    async logout(){
+    async logout() {
       await this.$store.dispatch('logout')
-      this.$router.push('/login?message=logout')
     }
+
   }
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 .navbar_burger {
   position: absolute;
   top: 25px;

@@ -70,6 +70,7 @@ export default {
 <style scoped>
    .wrapper{
      max-width: 1200px;
+     min-height: 480px;
      overflow: hidden;
    }
    .slider{

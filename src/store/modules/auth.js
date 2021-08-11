@@ -1,29 +1,30 @@
 import firebase from "firebase/app";
+import {error} from "../../utils/error";
 
 
 export default {
 
     actions: {
-        async login({dispatch, commit}, {email, password}) {
+        async login({commit, dispatch},{email, password}) {
             try {
                 await firebase.auth().signInWithEmailAndPassword(email, password)
+                commit('clearMessage', null, {root: true} )
             } catch (e) {
-                commit('setError', e),
-                    dispatch
-
-                throw e
+                dispatch('setMessage',{
+                    value: error(e.response.data.error.message),
+                    type: 'danger'
+                }, {root : true})
+                throw new Error()
             }
         },
-        async register({dispatch, commit}, {email, password, name}) {
+        async register({dispatch}, {email, password, name}) {
             try {
                 await firebase.auth().createUserWithEmailAndPassword(email, password)
                 const uid = await dispatch('getUid')
                 await firebase.database().ref(`/users/${uid}/info`).set({name})
             } catch (e) {
 
-                commit('setError', e),
-                    dispatch
-                throw e
+             console.log(e)
             }
         },
         getUid() {
@@ -32,6 +33,7 @@ export default {
         },
         async logout() {
             await firebase.auth().signOut()
+
         }
     },
 

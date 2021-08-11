@@ -2,10 +2,7 @@
   <div class="products_main">
 
     <div class="container-fluid products__header">
-<!--      <slider
-          :slider_data="sliderItems"
-          :interval="7000"
-      />-->
+
     </div>
 
     <div class="container-sm products__find">
@@ -20,7 +17,7 @@
           v-for="product in searchValueProducts"
           :key="product.id"
           :product_item="product"
-          @addToBasked="addToBasked"
+          @addToBasket="addToBasket"
 
       >
 
@@ -28,22 +25,7 @@
       <product-alert
           v-if="productAlert"
           @closeAlert="productAlert=false"
-
-
       />
-
-
-      <!--      <Paginate
-                v-model="page"
-                :page-count="pageCount"
-                :click-handler="pageChangeHandler"
-                :prev-text="'Prev'"
-                :next-text="'Next'"
-                :container-class="'pagination'"
-                :page-class="'waves-effect'"
-            >
-            </Paginate>-->
-
 
     </div>
   </div>
@@ -54,34 +36,20 @@
 
 import {mapActions, mapGetters} from "vuex";
 import ProductsItem from "./ProductsItem";
-//import paginationMixin from "../../mixins/pagination.mixin"
 
-//import Slider from "../../ui/Slider";
+
+
 import ProductAlert from "../../ui/ProductAlert";
 
 
 export default {
   name: "Products",
-  //mixins: [paginationMixin],
   data() {
     return {
       modal: false,
       search: '',
       productAlert: false,
       clickAlert: 0,
-
-
-/*      sliderItems: [
-        {id: 1, name: 'img1', img: '1.jpg'},
-        {id: 2, name: 'img2', img: '2.jpg'},
-        {id: 3, name: 'img3', img: '3.jpg'},
-        {id: 4, name: 'img4', img: '4.jpg'},
-        {id: 5, name: 'img5', img: '5.jpg'},
-        {id: 6, name: 'img6', img: '6.jpg'},
-
-      ],*/
-
-
     }
   },
 
@@ -97,10 +65,10 @@ export default {
 
   },
   methods: {
-    ...mapActions(['GET_PRODUCTS_FROM_API', 'ADD_TO_BASKED']),
-    addToBasked(data) {
+    ...mapActions(['GET_PRODUCTS_FROM_API', 'ADD_TO_BASKET']),
+    addToBasket(data) {
 
-      this.ADD_TO_BASKED(data)
+      this.ADD_TO_BASKET(data)
       return this.productAlert = true
 
     },
@@ -113,12 +81,10 @@ export default {
   },
   mounted() {
     this.GET_PRODUCTS_FROM_API()
-    //this.setUpPagination(this.GET_PRODUCTS_FROM_API())
-
   },
 
   components: {
-    ProductsItem, ProductAlert /*Slider*/
+    ProductsItem, ProductAlert
   },
 
 }
