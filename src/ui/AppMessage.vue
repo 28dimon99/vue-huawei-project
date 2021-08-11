@@ -29,7 +29,7 @@ export default {
     return {
       message ,
       title,
-      close: ()=>{store.commit('clearMessage')}
+      close: () => store.commit('clearMessage')
     }
   }
 }

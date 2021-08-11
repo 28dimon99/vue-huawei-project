@@ -18,7 +18,6 @@
           :key="product.id"
           :product_item="product"
           @addToBasket="addToBasket"
-
       >
 
       </products-item>

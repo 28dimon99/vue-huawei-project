@@ -33,8 +33,6 @@
             <th></th>
             <th>{{ basketTotalConst }} грн.</th>
             <th></th>
-
-
           </table>
 
 

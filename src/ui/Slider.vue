@@ -4,12 +4,10 @@
     <div class="slider"
          :style="{'margin-left': '-' + (100 * currentSlideIndex) + '%'}"
     >
-
       <slider-items
           v-for="item in slider_data"
           :key="item.id"
           :item_data="item"
-
       />
       <i @click="prevSlide" class="bi bi-chevron-compact-left prev_left "></i>
       <i @click="nextSlide" class="bi bi-chevron-compact-right next_right"></i>
@@ -59,8 +57,6 @@ export default {
       }else {
         this.currentSlideIndex++
       }
-
-
     }
   },
   components:{SliderItems}

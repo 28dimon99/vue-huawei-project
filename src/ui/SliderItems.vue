@@ -10,7 +10,7 @@ export default {
   props:{
     item_data:{
       type: Object,
-      default: () =>{}
+      default: () => {}
     }
   }
 }

@@ -14,7 +14,7 @@ export default {
                     value: error(e.response.data.error.message),
                     type: 'danger'
                 }, {root : true})
-                throw new Error()
+                //throw new Error()
             }
         },
         async register({dispatch}, {email, password, name}) {

@@ -7,15 +7,6 @@
             />
     </div>
 
-<!--    <div class="container-sm company__header">
-      <img src="../assets/huawei.jpg" class="img-responsive" alt="">
-      <div class=" header_text">
-        <h1> О Huawei</h1>
-        <h3>Создаем ценность для наших клиентов.</h3>
-        <h3>Способствуем развитию отрасли.</h3>
-        <h3>Стимулируем экономический рост.</h3>
-      </div>
-    </div>-->
     <div class="company__body">
       <div class="container-sm">
         <h2>КТО МЫ?</h2>
@@ -107,36 +98,21 @@ export default {
   border-radius: 10px;
 }
 
-.company__header img {
-  position: relative;
-  max-width: 100%;
-  background-image: url("../assets/huawei.jpg");
-}
-
-.header_text {
-  position: marker;
-  top: 200px;
-  left: 100px;
-  margin: 0 auto;
-}
-
 .company__body {
   display: grid;
 }
 
-.header_text {
-  position: absolute;
-  top: 20%;
-  left: 10%;
 
-}
-
-.company__body {
-  display: grid;
-}
 
 /*************************Media**********************/
 @media only screen and (max-width: 1360px) {
+  .company__slider{
+    display: none;
+  }
 
+  .company__body {
+    display: grid;
+    margin: 100px auto;
+  }
 }
 </style>
