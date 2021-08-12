@@ -9,14 +9,9 @@ import 'firebase/auth'
 import 'firebase/database'
 import  './theme.css'
 
-import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
-Vue.use(BootstrapVue)
-Vue.use(BootstrapVueIcons)
+
 
 Vue.use(Vuelidate)
-
-
-
 
 
 

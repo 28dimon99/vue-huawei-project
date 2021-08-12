@@ -10,7 +10,7 @@
         <i class="bi bi-list menu"   v-if="!show" @click="show = !show" key="menu"></i>
         <i class="bi bi-x close"  v-else @click="show = !show" key="close"></i>
       </transition>
-      <transition name="fade" >
+      <transition name="fade">
         <ul v-if="show" class="navbar_link">
           <router-link
               active-class="active"
@@ -137,21 +137,27 @@ export default {
     width: 30px;
     height: 30px;
   }
-.navbar_link a {
+
+ .navbar_link {
     display: block;
     position: relative;
     top: 20px;
     grid-template-columns: 1fr;
-    border: 2px solid black;
+    border: 2px solid white;
     padding: 10px;
     border-radius: 10px;
-    width: 250px;
-    height: 300px;
+    width: 230px;
+    height: 230px;
     text-decoration: none;
     z-index: 999999999999;
     text-align: center;
+    color: white;
+    background: #2c3e50;
+    list-style: none;
   }
-
+.navbar_link li:hover{
+    color:#42b983;
+  }
 
 }
 
