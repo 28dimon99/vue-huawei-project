@@ -3,7 +3,7 @@ import {error} from "../../utils/error";
 
 
 export default {
-
+    namespaced: true,
     actions: {
         async login({commit, dispatch},{email, password}) {
             try {

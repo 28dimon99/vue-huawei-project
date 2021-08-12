@@ -1,10 +1,9 @@
 <template>
   <div class="container-sm basket">
+    <h1>Корзина</h1>
     <div class="card basket__table">
       <p v-if="!BASKET.length">Корзина пустая...</p>
       <div v-else>
-        <h1>Корзина</h1>
-        <hr>
         <div class="table-responsive">
           <table class="table">
             <thead>
@@ -32,6 +31,7 @@
             <th></th>
             <th></th>
             <th>{{ basketTotalConst }} грн.</th>
+            <th></th>
             <th></th>
           </table>
 
@@ -90,7 +90,11 @@ export default {
   max-width: 1200px;
   margin: 100px auto;
 }
-
+.basket h1{
+  margin: 50px auto;
+  text-align: center;
+  color: white;
+}
 .basket__table {
   border: 5px solid #3eaf7c;
 }

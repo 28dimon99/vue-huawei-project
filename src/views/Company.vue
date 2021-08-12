@@ -1,11 +1,15 @@
 <template>
   <div class="container-fluid  company__main">
+    <div class="company__header">
+      <h1>О Компании</h1>
+    </div>
     <div class="container-fluid company__slider">
             <slider
                 :slider_data="sliderItems"
                 :interval="7000"
             />
     </div>
+
 
     <div class="company__body">
       <div class="container-sm">
@@ -89,11 +93,15 @@ export default {
   color: white;
   margin: 0 auto;
   padding: 10px;
-
+}
+.company__header h1{
+  margin: 50px auto;
+    color: white;
+    text-align: center;
 }
 .company__slider{
   display: grid;
-  margin: 100px auto;
+  margin: 20px auto;
   color: white;
   border-radius: 10px;
 }

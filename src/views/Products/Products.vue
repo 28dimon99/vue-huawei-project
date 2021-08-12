@@ -2,7 +2,7 @@
   <div class="products_main">
 
     <div class="container-fluid products__header">
-
+       <h1>Каталог Товаров</h1>
     </div>
 
     <div class="container-sm products__find">
@@ -92,23 +92,25 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .products_main {
   display: grid;
   margin: 0 auto;
 }
 
-.products__header {
+.products__header h1{
   display: grid;
-  margin: 100px auto;
+  margin: 70px auto;
   color: white;
   border-radius: 10px;
+  text-align: center;
 }
 
 .products__body {
   display: grid;
   width: 1300px;
   background: white;
-  margin: 50px auto;
+  margin: 20px auto;
   grid-template-columns: repeat(3, 1fr);
   border: 5px solid #3eaf7c;
   border-radius: 10px;
@@ -116,9 +118,9 @@ export default {
 
 .products__find input {
   display: grid;
-  margin: 0 auto;
+  margin: 20px auto;
   border-radius: 10px;
-  width: 800px;
+  width: 400px;
   height: 40px;
   border: 1px solid white;
 }

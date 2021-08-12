@@ -6,14 +6,12 @@
       </router-link>
     </div>
     <div class="navbar_burger">
-<!--      <transition name="fade" mode="out-in">  </transition>-->
+      <transition name="fade" mode="out-in">
         <i class="bi bi-list menu"   v-if="!show" @click="show = !show" key="menu"></i>
         <i class="bi bi-x close"  v-else @click="show = !show" key="close"></i>
-
-
-
-      <transition name="fade" class="navbar_link">
-        <ul v-if="show">
+      </transition>
+      <transition name="fade" >
+        <ul v-if="show" class="navbar_link">
           <router-link
               active-class="active"
               tag="li"
@@ -139,7 +137,7 @@ export default {
     width: 30px;
     height: 30px;
   }
-.navbar_link  {
+.navbar_link a {
     display: block;
     position: relative;
     top: 20px;

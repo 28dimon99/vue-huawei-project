@@ -1,4 +1,5 @@
 export default {
+
     state: {
         contacts: JSON.parse(localStorage.getItem('contacts') || '[]')
     },
