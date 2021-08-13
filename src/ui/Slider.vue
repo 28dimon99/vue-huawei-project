@@ -77,13 +77,13 @@ export default {
    .prev_left{
      z-index: 10;
      position: absolute;
-     top:50%;
+     top:65%;
      left:6%;
    }
    .next_right{
      z-index: 99999999;
      position: absolute;
-     top:50%;
+     top:65%;
      left:93%;
    }
    i{

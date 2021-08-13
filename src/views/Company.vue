@@ -101,7 +101,7 @@ export default {
 }
 .company__slider{
   display: grid;
-  margin: 20px auto;
+  margin: 10px auto;
   color: white;
   border-radius: 10px;
 }
@@ -120,7 +120,7 @@ export default {
 
   .company__body {
     display: grid;
-    margin: 100px auto;
+    margin: 0 auto;
   }
 }
 </style>

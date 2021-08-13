@@ -1,20 +1,16 @@
 import firebase from "firebase/app";
-import {error} from "../../utils/error";
+
 
 
 export default {
-    namespaced: true,
+    //namespaced: true,
     actions: {
-        async login({commit, dispatch},{email, password}) {
+        async login({dispatch},{email, password}) {
             try {
                 await firebase.auth().signInWithEmailAndPassword(email, password)
-                commit('clearMessage', null, {root: true} )
+                dispatch
             } catch (e) {
-                dispatch('setMessage',{
-                    value: error(e.response.data.error.message),
-                    type: 'danger'
-                }, {root : true})
-                //throw new Error()
+              console.log(e)
             }
         },
         async register({dispatch}, {email, password, name}) {

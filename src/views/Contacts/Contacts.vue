@@ -115,7 +115,7 @@ export default {
       commit: '',
       modal: false,
       phoneNumberMask:{
-        mask: '+{3}(800)000-00-00',
+        mask: '+{3}(800)000-00-000',
         lazy: true
       }
     }
@@ -199,7 +199,7 @@ export default {
 
 .contacts_phone {
   display: grid;
-  height: 500px;
+  min-height: 550px;
   border-left: 5px solid #3eaf7c;
   padding: 10px;
 }
@@ -253,6 +253,7 @@ input {
     display: grid;
     grid-template-columns: 1fr;
   }
+
 }
 @media (max-width: 500px) {
   .contacts {

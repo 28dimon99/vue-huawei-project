@@ -43,23 +43,11 @@
 
 <script>
 import {email, required, minLength} from 'vuelidate/lib/validators'
-import {useRoute} from 'vue-router'
-import {useStore} from 'vuex'
-import {error} from "../utils/error";
+
+
 
 export default {
-  name: "LoginTest",
-  setup(){
-    const route = useRoute()
-    const store = useStore()
-
-    if(route.query.message){
-      store.dispatch('setMessage', {
-        value: error(route.query.message),
-        type: 'warning'
-      })
-    }
-  },
+  name: "Login",
   data() {
     return {
         email: '',
